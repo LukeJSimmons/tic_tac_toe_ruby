@@ -9,16 +9,16 @@ class Board
   end
 
   def print_board
-    puts ''
-    puts '  1 2 3'
+    board_str = "\n  1 2 3\n"
     @board.each_with_index do |row, index|
-      print (index+1).to_s + ' '
+      board_str << (index+1).to_s + ' '
       row.each_with_index do |column, index|
-        print column + ' '
+        board_str << column + ' '
       end
-      puts ''
+      board_str << "\n"
     end
-    puts ''
+    board_str << "\n"
+    puts board_str
     self.check_for_win
     self.take_input
   end
@@ -29,8 +29,8 @@ class Board
 
     if x == 'exit' || x == 'q'
       exit
-    elsif x.to_i.to_s != x
-      puts 'Invalid Input: Please Input a Number'
+    elsif x.to_i.to_s != x || x.to_i < 1 || x.to_i > 3
+      puts 'Invalid Input: Please Input a Number Between 1 and 3'
       self.print_board
       return
     end
@@ -38,8 +38,8 @@ class Board
     puts @current_symbol + ' - Enter row number:'
     y = gets.chomp
 
-    if y.to_i.to_s != y
-      puts 'Invalid Input: Please Input a Number'
+    if y.to_i.to_s != y || y.to_i < 1 || y.to_i > 3
+      puts 'Invalid Input: Please Input a Number Between 1 and 3'
       self.print_board
       return
     end
