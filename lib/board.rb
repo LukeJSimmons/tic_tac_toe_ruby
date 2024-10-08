@@ -1,10 +1,10 @@
 class Board
-  def initialize
-    @board = [
-      ['#', '#', '#'],
-      ['#', '#', '#'],
-      ['#', '#', '#']
-    ]
+  def initialize(board=[
+    ['#', '#', '#'],
+    ['#', '#', '#'],
+    ['#', '#', '#']
+  ])
+    @board = board
     @current_symbol = 'X'
   end
 
@@ -27,7 +27,7 @@ class Board
     puts @current_symbol + ' - Enter column number:'
     x = gets.chomp
 
-    if x == 'exit'
+    if x == 'exit' || x == 'q'
       exit
     elsif x.to_i.to_s != x
       puts 'Invalid Input: Please Input a Number'

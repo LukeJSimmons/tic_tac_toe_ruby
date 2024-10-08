@@ -1,4 +1,4 @@
-require './lib/board/board.rb'
+require './lib/board.rb'
 
 board = Board.new
 
